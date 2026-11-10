@@ -1,0 +1,53 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #14183a;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 창 크기에 맞춰 16:9 비율 유지 스케일링. 버튼 크기는 cqw(무대 너비 기준)로 함께 커진다. */
+#stage {
+  position: relative;
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  container-type: inline-size;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+  /* F-59: 터치 중 스크롤·확대·텍스트 선택·길게 누르기 메뉴 막기 */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #4fb3ff;
+}
+
+/* HUD 오른쪽 끝 저장 버튼 (800px 기준 x 690~792, y 8~48) */
+#saveBtn {
+  display: none;
+  position: absolute;
+  top: 1cqw;
+  right: 1cqw;
+  width: 12.75cqw;
+  height: 5cqw;
+  padding: 0;
+  font: bold 2cqw "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  color: #2a1d00;
+  background: #ffd54f;
+  border: 0.35cqw solid #2a1d00;
+  border-radius: 1.2cqw;
+  box-shadow: 0 0.45cqw 0 #8a6200;
+  cursor: pointer;
+}
+#saveBtn:hover { background: #ffe082; }
+#saveBtn:active { transform: translateY(0.35cqw); box-shadow: 0 0.1cqw 0 #8a6200; }
